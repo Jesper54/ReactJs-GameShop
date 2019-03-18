@@ -12,7 +12,7 @@ class Cart extends Component
                             <table className="table">
                                 <thead>
                                     <tr>
-                                        <th colspan="2">Game</th>
+                                        <th colSpan="2">Game</th>
                                         <th className="text-center">Aantal</th>
                                         <th className="text-right">Prijs p.st.</th>
                                         <th className="text-right">Totaal</th>
@@ -24,7 +24,7 @@ class Cart extends Component
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td colspan="4" className="text-right">
+                                        <td colSpan="4" className="text-right">
                                             <strong>Totaal</strong>
                                         </td>
                                         <td className="text-right">
