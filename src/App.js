@@ -75,21 +75,46 @@ class App extends Component {
     cart: []
   }
 
+  addToCart = (id) => {
+    const gameToAdd = this.state.games.find((game) => {
+      return id === game.id
+    })
+
+    const cart_game = {
+      ...gameToAdd,
+      amount: 1
+    }
+
+    const old_cart = this.state.cart;
+    old_cart.push(cart_game);
+
+    this.setState({
+      cart: old_cart
+    });
+  }
+
+  cartCount = () => {
+    return this.state.cart.length
+  }
+
   render() {
     return (
       <div className="App">
-      <BrowserRouter>
-        <>
-          <Header />
+        <BrowserRouter>
+          <>
+            <Header count={this.cartCount()}/>
             <Route 
               exact path='/'
-              render={() => <Shop games={this.state.games} />}
-              />
-              <Route 
-                path='/cart'
-                render={() => <Cart />}
-              />
-          <Footer />
+              render={() => <Shop
+                games={this.state.games}
+                addToShoppingCart={this.addToCart}
+              />}
+            />
+            <Route
+              path='/cart'
+              render={() => <Cart />}
+            />
+            <Footer />
           </>
         </BrowserRouter>
       </div>
